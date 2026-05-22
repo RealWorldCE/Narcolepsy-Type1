@@ -187,6 +187,391 @@
     to{opacity:1; transform:translateY(0)}
   }
 
+
+
+  .cleaning-swab {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 158px;
+    height: 32px;
+    opacity: 0;
+    transform: translate(-120%, -110%) rotate(-24deg);
+    z-index: 35;
+    pointer-events: none;
+    filter: drop-shadow(0 18px 22px rgba(2, 6, 23, 0.45));
+  }
+
+  .cleaning-swab .swab-stick {
+    position: absolute;
+    left: 28px;
+    top: 13px;
+    width: 126px;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(226,232,240,0.95), rgba(148,163,184,0.82));
+    border: 1px solid rgba(255,255,255,0.35);
+  }
+
+  .cleaning-swab .swab-pad {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(219,234,254,0.94));
+    border: 2px solid rgba(147,197,253,0.9);
+    box-shadow: 0 0 28px rgba(96,165,250,0.46);
+  }
+
+  .cleaning-swab.active {
+    animation: swabClean 1.45s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  .clean-zone {
+    position: absolute;
+    left: calc(50% - 56px);
+    top: calc(40% - 56px);
+    width: 112px;
+    height: 112px;
+    border-radius: 999px;
+    opacity: 0;
+    z-index: 28;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(125,211,252,0.20), rgba(37,99,235,0.03) 62%, transparent 70%);
+    border: 2px solid rgba(125,211,252,0.44);
+    box-shadow: 0 0 38px rgba(14,165,233,0.22);
+    transition: opacity .35s ease;
+  }
+
+  .clean-zone.active {
+    opacity: 1;
+    animation: cleanPulse 1.9s ease-out infinite;
+  }
+
+  @keyframes swabClean {
+    0%   { opacity: 0; transform: translate(-150%, -125%) rotate(-26deg); }
+    16%  { opacity: 1; transform: translate(-98%, -96%) rotate(-24deg); }
+    36%  { opacity: 1; transform: translate(-42%, -54%) rotate(-18deg); }
+    58%  { opacity: 1; transform: translate(-6%, -84%) rotate(-24deg); }
+    78%  { opacity: 1; transform: translate(-38%, -26%) rotate(-14deg); }
+    100% { opacity: 0; transform: translate(16%, -72%) rotate(-20deg); }
+  }
+
+  @keyframes cleanPulse {
+    0%, 100% { box-shadow: 0 0 24px rgba(14,165,233,0.16); }
+    50% { box-shadow: 0 0 44px rgba(14,165,233,0.36); }
+  }
+
+
+
+  .lp-syringe {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    width: 190px;
+    height: 44px;
+    opacity: 0;
+    transform: translate(60%, -150%) rotate(-34deg);
+    transform-origin: 22px 22px;
+    z-index: 38;
+    pointer-events: none;
+    filter: drop-shadow(0 22px 24px rgba(2, 6, 23, 0.48));
+  }
+
+  .lp-syringe .syringe-barrel {
+    position: absolute;
+    left: 48px;
+    top: 13px;
+    width: 84px;
+    height: 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(248,250,252,0.98), rgba(219,234,254,0.95));
+    border: 2px solid rgba(147,197,253,0.92);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.38);
+  }
+
+  .lp-syringe .syringe-barrel::before,
+  .lp-syringe .syringe-barrel::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    width: 1px;
+    height: 9px;
+    background: rgba(37,99,235,0.40);
+  }
+
+  .lp-syringe .syringe-barrel::before { left: 24px; }
+  .lp-syringe .syringe-barrel::after { left: 52px; }
+
+  .lp-syringe .syringe-plunger {
+    position: absolute;
+    left: 125px;
+    top: 18px;
+    width: 50px;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(226,232,240,0.95);
+    border: 1px solid rgba(255,255,255,0.42);
+  }
+
+  .lp-syringe .syringe-plunger::after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: -8px;
+    width: 12px;
+    height: 24px;
+    border-radius: 999px;
+    background: rgba(226,232,240,0.95);
+    border: 1px solid rgba(255,255,255,0.42);
+  }
+
+  .lp-syringe .syringe-hub {
+    position: absolute;
+    left: 34px;
+    top: 15px;
+    width: 18px;
+    height: 14px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgba(96,165,250,0.96), rgba(37,99,235,0.90));
+    border: 1px solid rgba(191,219,254,0.7);
+  }
+
+  .lp-syringe .syringe-needle {
+    position: absolute;
+    left: 0;
+    top: 21px;
+    width: 38px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(148,163,184,0.95));
+    box-shadow: 0 0 16px rgba(219,234,254,0.55);
+  }
+
+  .lp-syringe .csf-flash {
+    position: absolute;
+    left: 70px;
+    top: 18px;
+    width: 12px;
+    height: 7px;
+    border-radius: 999px;
+    opacity: 0;
+    background: rgba(56,189,248,0.82);
+    box-shadow: 0 0 18px rgba(56,189,248,0.78);
+  }
+
+  .lp-syringe.active {
+    animation: needleInsert 1.25s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  .lp-syringe.active .syringe-plunger {
+    animation: plungerDraw 1.25s cubic-bezier(.16,1,.3,1) forwards;
+  }
+
+  .lp-syringe.active .csf-flash {
+    animation: csfFlash 1.25s ease forwards;
+  }
+
+  @keyframes needleInsert {
+    0%   { opacity: 0; transform: translate(72%, -155%) rotate(-34deg); }
+    22%  { opacity: 1; transform: translate(32%, -104%) rotate(-34deg); }
+    62%  { opacity: 1; transform: translate(5%, -52%) rotate(-34deg); }
+    84%  { opacity: 1; transform: translate(5%, -52%) rotate(-34deg); }
+    100% { opacity: 0; transform: translate(25%, -88%) rotate(-34deg); }
+  }
+
+  @keyframes plungerDraw {
+    0%, 48% { transform: translateX(0); }
+    78%, 100% { transform: translateX(14px); }
+  }
+
+  @keyframes csfFlash {
+    0%, 45% { opacity: 0; transform: scaleX(0.2); }
+    72% { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0; transform: scaleX(1.1); }
+  }
+
+
+
+  .lp-syringe.ready-to-drag {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: grab;
+    transform: translate(6px, -22px) rotate(-34deg);
+    transition: opacity .2s ease, filter .2s ease;
+    touch-action: none;
+  }
+
+  .lp-syringe.ready-to-drag:hover {
+    filter: drop-shadow(0 26px 28px rgba(37, 99, 235, 0.42));
+  }
+
+  .lp-syringe.dragging {
+    cursor: grabbing;
+    filter: drop-shadow(0 28px 32px rgba(37, 99, 235, 0.56));
+  }
+
+  .lp-syringe.placed {
+    opacity: 1;
+    pointer-events: none;
+    transform: translate(6px, -22px) rotate(-34deg);
+  }
+
+  .syringe-drop-zone {
+    animation: targetReadyPulse 1.55s ease-in-out infinite;
+  }
+
+  @keyframes targetReadyPulse {
+    0%, 100% { box-shadow: 0 0 0 10px rgba(59,130,246,0.10), 0 0 34px rgba(59,130,246,0.18); }
+    50% { box-shadow: 0 0 0 16px rgba(59,130,246,0.18), 0 0 52px rgba(59,130,246,0.34); }
+  }
+
+  .syringe-instruction {
+    position: absolute;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    z-index: 42;
+    display: none;
+    max-width: min(92%, 520px);
+    background: rgba(15,23,42,0.86);
+    border: 1px solid rgba(191,219,254,0.22);
+    color: white;
+    border-radius: 18px;
+    padding: 12px 16px;
+    box-shadow: 0 22px 48px rgba(2,6,23,0.42);
+    backdrop-filter: blur(14px);
+    text-align: center;
+  }
+
+  .syringe-instruction.active { display: block; }
+
+  .lp-video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 60;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 4.25rem 2rem 2rem;
+    background:
+      radial-gradient(circle at 48% 42%, rgba(59,130,246,0.12), transparent 28%),
+      rgba(2, 6, 23, 0.18);
+    backdrop-filter: blur(4px);
+    pointer-events: auto;
+  }
+
+  .lp-video-overlay.active { display: flex; }
+
+  .lp-video-card {
+    position: relative;
+    width: min(560px, 94%);
+    border-radius: 46px 46px 46px 18px;
+    overflow: visible;
+    border: 1px solid rgba(191,219,254,0.84);
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,246,255,0.96));
+    box-shadow: 0 34px 80px rgba(2,6,23,0.42), inset 0 1px 0 rgba(255,255,255,0.85);
+    animation: thoughtBubblePop .34s cubic-bezier(.16,1,.3,1);
+  }
+
+  .lp-video-card::before,
+  .lp-video-card::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(219,234,254,0.96));
+    border: 1px solid rgba(191,219,254,0.72);
+    box-shadow: 0 16px 30px rgba(2,6,23,0.22);
+  }
+
+  .lp-video-card::before {
+    width: 34px;
+    height: 34px;
+    left: -28px;
+    bottom: 38px;
+  }
+
+  .lp-video-card::after {
+    width: 18px;
+    height: 18px;
+    left: -56px;
+    bottom: 18px;
+  }
+
+  .lp-video-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.2rem .85rem 1.35rem;
+    border-bottom: 1px solid rgba(147,197,253,0.34);
+  }
+
+  .lp-video-kicker {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: #2563eb;
+    font-weight: 900;
+  }
+
+  .lp-video-title {
+    font-size: .92rem;
+    color: #0f172a;
+    font-weight: 900;
+    margin-top: .15rem;
+  }
+
+  .lp-video-close {
+    color: #1d4ed8;
+    background: rgba(37,99,235,0.08);
+    border: 1px solid rgba(147,197,253,0.34);
+    border-radius: 999px;
+    padding: .55rem .85rem;
+    font-size: .7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    transition: all .2s ease;
+  }
+
+  .lp-video-close:hover { background: rgba(37,99,235,0.14); color: #1e40af; }
+
+  .lp-video-frame {
+    padding: 0 1.1rem 1.1rem;
+  }
+
+  .lp-video-card video {
+    width: 100%;
+    max-height: min(46vh, 360px);
+    display: block;
+    background: black;
+    border-radius: 28px 28px 30px 12px;
+    box-shadow: 0 18px 36px rgba(15,23,42,0.18);
+    border: 1px solid rgba(15,23,42,0.08);
+  }
+
+  @keyframes thoughtBubblePop {
+    from { opacity: 0; transform: translate(18px, 18px) scale(.86); }
+    to   { opacity: 1; transform: translate(0, 0) scale(1); }
+  }
+
+  @media (max-width: 720px) {
+    .lp-video-overlay {
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .lp-video-card {
+      width: 96%;
+      border-radius: 34px 34px 34px 16px;
+    }
+    .lp-video-card::before { left: 28px; bottom: -24px; }
+    .lp-video-card::after { left: 8px; bottom: -48px; }
+  }
+
   @media (max-width: 1024px){
     body{overflow:auto}
   }
@@ -242,11 +627,6 @@
             <span id="progressText" class="text-xs font-bold text-blue-600">0%</span>
           </div>
         </div>
-
-        <button class="text-slate-600 hover:text-blue-600 flex items-center gap-1 transition-colors" onclick="toggleResources()">
-          <span class="material-symbols-outlined">library_books</span>
-          <span class="text-sm font-semibold">Resources</span>
-        </button>
       </nav>
     </div>
   </header>
@@ -831,7 +1211,7 @@ document.addEventListener('DOMContentLoaded', function(){
             </div>
           </div>
 
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all scale-0 opacity-0 z-50"
+          <div class="absolute top-5 right-5 left-auto max-w-[260px] bg-blue-600 text-white px-4 py-3 rounded-2xl text-xs font-bold shadow-2xl transition-all scale-95 opacity-0 z-50 pointer-events-none text-left leading-snug"
                id="sim-msg">
             Perfect Location!
           </div>
@@ -1041,10 +1421,30 @@ document.addEventListener('DOMContentLoaded', function(){
             <p class="text-sm font-bold text-white mt-1">${site}</p>
           </div>
 
+          <div id="clean-zone" class="clean-zone"></div>
+
           <div id="target-point"
                class="absolute w-12 h-12 border-4 border-dashed border-white/40 rounded-full cursor-crosshair hover:border-blue-500 flex items-center justify-center shadow-[0_0_0_10px_rgba(59,130,246,0.08)]"
                style="top: 40%; left: 50%;">
             <span class="material-symbols-outlined text-white/25">close</span>
+          </div>
+
+          <div id="cleaning-swab" class="cleaning-swab" aria-hidden="true">
+            <div class="swab-pad"></div>
+            <div class="swab-stick"></div>
+          </div>
+
+          <div id="lp-syringe" class="lp-syringe" aria-hidden="true">
+            <div class="syringe-needle"></div>
+            <div class="syringe-hub"></div>
+            <div class="syringe-barrel"></div>
+            <div class="csf-flash"></div>
+            <div class="syringe-plunger"></div>
+          </div>
+
+          <div id="syringe-instruction" class="syringe-instruction">
+            <div class="text-[11px] uppercase tracking-[0.18em] text-blue-200 font-black mb-1">Needle Placement</div>
+            <div class="text-sm font-bold">Drag the syringe so the needle tip is on the dashed target, then release to complete CSF extraction.</div>
           </div>
 
           <div id="landmark-guide" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity">
@@ -1052,10 +1452,6 @@ document.addEventListener('DOMContentLoaded', function(){
                  style="top: 24%; left: 44%;">${landmarkLabel}</div>
           </div>
 
-          <div class="absolute left-5 bottom-5 max-w-xs rounded-2xl bg-slate-950/75 border border-white/10 px-4 py-3">
-            <p class="text-[11px] uppercase tracking-[0.18em] text-slate-400 font-bold">Procedure Goal</p>
-            <p class="text-sm text-slate-200 mt-1">Use the 3D model to confirm a safe interspace before extracting CSF for orexin-A quantification.</p>
-          </div>
         </div>
       `;
 
@@ -1065,6 +1461,155 @@ document.addEventListener('DOMContentLoaded', function(){
       if (btnEl) btnEl.classList.add('border-blue-500', 'bg-slate-700/50');
     }
 
+
+    function getSyringeNeedleTip(syringe) {
+      const storedX = parseFloat(syringe.dataset.tipClientX || '');
+      const storedY = parseFloat(syringe.dataset.tipClientY || '');
+      if (!Number.isNaN(storedX) && !Number.isNaN(storedY)) {
+        return { x: storedX, y: storedY };
+      }
+
+      const rect = syringe.getBoundingClientRect();
+      return {
+        x: rect.left + 4,
+        y: rect.top + (rect.height / 2)
+      };
+    }
+
+    function resetSyringeDragState() {
+      const syringe = document.getElementById('lp-syringe');
+      const targetPoint = document.getElementById('target-point');
+      const instruction = document.getElementById('syringe-instruction');
+
+      if (syringe) {
+        syringe.classList.remove('ready-to-drag', 'dragging', 'placed', 'active');
+        syringe.style.left = '50%';
+        syringe.style.top = '40%';
+      }
+      if (targetPoint) targetPoint.classList.remove('syringe-drop-zone');
+      if (instruction) instruction.classList.remove('active');
+    }
+
+    function showDraggableSyringe() {
+      const syringe = document.getElementById('lp-syringe');
+      const targetPoint = document.getElementById('target-point');
+      const instruction = document.getElementById('syringe-instruction');
+      const container = syringe?.parentElement;
+      if (!syringe || !targetPoint || !container) return;
+
+      const targetLeft = parseFloat(targetPoint.style.left || '50');
+      const targetTop = parseFloat(targetPoint.style.top || '40');
+      const startLeft = Math.min(86, targetLeft + 24);
+      const startTop = Math.min(82, targetTop + 26);
+
+      syringe.style.left = `${startLeft}%`;
+      syringe.style.top = `${startTop}%`;
+      syringe.classList.remove('active', 'placed');
+      syringe.classList.add('ready-to-drag');
+      targetPoint.classList.add('syringe-drop-zone');
+      if (instruction) instruction.classList.add('active');
+
+      document.getElementById('sim-status').innerText = 'Drag syringe needle to the target marker';
+      wireSyringeDrag();
+    }
+
+    function wireSyringeDrag() {
+      const syringe = document.getElementById('lp-syringe');
+      const container = syringe?.parentElement;
+      if (!syringe || !container || syringe.dataset.dragReady === 'true') return;
+
+      let dragging = false;
+
+      const moveSyringeToEvent = (e) => {
+        const point = e.touches ? e.touches[0] : e;
+        const rect = container.getBoundingClientRect();
+        let x = point.clientX - rect.left;
+        let y = point.clientY - rect.top;
+
+        x = Math.max(0, Math.min(x, rect.width));
+        y = Math.max(0, Math.min(y, rect.height));
+
+        syringe.style.left = `${(x / rect.width) * 100}%`;
+        syringe.style.top = `${(y / rect.height) * 100}%`;
+        syringe.dataset.tipClientX = String(point.clientX);
+        syringe.dataset.tipClientY = String(point.clientY);
+      };
+
+      const startDrag = (e) => {
+        if (!syringe.classList.contains('ready-to-drag')) return;
+        dragging = true;
+        syringe.classList.add('dragging');
+        moveSyringeToEvent(e);
+        e.preventDefault();
+      };
+
+      const onDrag = (e) => {
+        if (!dragging) return;
+        moveSyringeToEvent(e);
+        e.preventDefault();
+      };
+
+      const endDrag = () => {
+        if (!dragging) return;
+        dragging = false;
+        syringe.classList.remove('dragging');
+        handleSyringeRelease();
+      };
+
+      syringe.addEventListener('mousedown', startDrag);
+      syringe.addEventListener('touchstart', startDrag, { passive: false });
+      window.addEventListener('mousemove', onDrag, { passive: false });
+      window.addEventListener('touchmove', onDrag, { passive: false });
+      window.addEventListener('mouseup', endDrag);
+      window.addEventListener('touchend', endDrag);
+      syringe.dataset.dragReady = 'true';
+    }
+
+    function handleSyringeRelease() {
+      const syringe = document.getElementById('lp-syringe');
+      const targetPoint = document.getElementById('target-point');
+      const instruction = document.getElementById('syringe-instruction');
+      if (!syringe || !targetPoint) return;
+
+      const needleTip = getSyringeNeedleTip(syringe);
+      const targetRect = targetPoint.getBoundingClientRect();
+      const targetCenter = {
+        x: targetRect.left + targetRect.width / 2,
+        y: targetRect.top + targetRect.height / 2
+      };
+      const distance = Math.hypot(needleTip.x - targetCenter.x, needleTip.y - targetCenter.y);
+
+      if (distance > 58) {
+        showSimMsg('Move the needle tip onto the target marker', 'bg-orange-600');
+        document.getElementById('sim-status').innerText = 'Reposition needle on the dashed target';
+        return;
+      }
+
+      syringe.classList.remove('ready-to-drag');
+      syringe.classList.add('placed');
+      targetPoint.classList.remove('syringe-drop-zone');
+      if (instruction) instruction.classList.remove('active');
+
+      document.getElementById('sim-status').innerText = 'Needle placed - extracting CSF';
+      finalizeCsfExtraction();
+    }
+
+    function finalizeCsfExtraction() {
+      const status = document.getElementById('sim-status');
+      const isSafeSite = simulationState.site === 'L3-L4' || simulationState.site === 'L4-L5';
+
+      if (isSafeSite) {
+        showSimMsg('CSF Successfully Extracted!', 'bg-indigo-600');
+        status.innerText = 'Procedure Complete - Ready for Orexin Assay';
+        const view = document.getElementById('sim-view');
+        view.classList.add('brightness-150');
+        setTimeout(() => view.classList.remove('brightness-150'), 200);
+      } else {
+        showSimMsg('WARNING: High Risk of Cord Injury', 'bg-red-600');
+        status.innerText = 'Procedure Aborted - Wrong Interspace';
+      }
+    }
+
     function simAction(action) {
       if (!simulationState.site) return;
 
@@ -1072,7 +1617,31 @@ document.addEventListener('DOMContentLoaded', function(){
 
       if (action === 'clean') {
         simulationState.cleaned = true;
-        showSimMsg("Site Sterilized", "bg-green-600");
+
+        const swab = document.getElementById('cleaning-swab');
+        const cleanZone = document.getElementById('clean-zone');
+        const targetPoint = document.getElementById('target-point');
+
+        if (swab) {
+          swab.classList.remove('active');
+          void swab.offsetWidth;
+          swab.classList.add('active');
+        }
+
+        if (cleanZone) {
+          cleanZone.classList.remove('active');
+          setTimeout(() => cleanZone.classList.add('active'), 450);
+        }
+
+        if (targetPoint) {
+          setTimeout(() => {
+            targetPoint.classList.remove('border-white/40');
+            targetPoint.classList.add('border-cyan-300');
+            targetPoint.style.boxShadow = '0 0 0 10px rgba(14,165,233,0.14), 0 0 34px rgba(14,165,233,0.30)';
+          }, 650);
+        }
+
+        showSimMsg("Cleaning Swab Applied", "bg-green-600");
         status.innerText = 'Phase 2: Palpate Landmarks';
       } else if (action === 'locate') {
         if (!simulationState.cleaned) return showSimMsg("Sterilize site first!", "bg-orange-600");
@@ -1084,27 +1653,22 @@ document.addEventListener('DOMContentLoaded', function(){
         document.getElementById('inject-btn').classList.remove('opacity-50', 'cursor-not-allowed');
       } else if (action === 'extract') {
         if (!simulationState.located) return;
-        
-        if (simulationState.site === 'L3-L4' || simulationState.site === 'L4-L5') {
-            showSimMsg("CSF Successfully Extracted!", "bg-indigo-600");
-            status.innerText = 'Procedure Complete - Ready for Orexin Assay';
-            const view = document.getElementById('sim-view');
-            view.classList.add('brightness-150');
-            setTimeout(() => view.classList.remove('brightness-150'), 200);
-        } else {
-            showSimMsg("WARNING: High Risk of Cord Injury", "bg-red-600");
-            status.innerText = 'Procedure Aborted - Wrong Interspace';
-        }
+
+        showDraggableSyringe();
+        showSimMsg("Drag and release the syringe on the target", "bg-blue-600");
       }
     }
 
     function showSimMsg(text, color) {
       const msg = document.getElementById('sim-msg');
+      if (!msg) return;
       msg.innerText = text;
-      msg.className = `absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${color} text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all scale-100 opacity-100 z-50`;
-      setTimeout(() => {
-        msg.classList.add('scale-0', 'opacity-0');
-      }, 1500);
+      msg.className = `absolute top-5 right-5 left-auto max-w-[260px] ${color} text-white px-4 py-3 rounded-2xl text-xs font-bold shadow-2xl transition-all scale-100 opacity-100 z-50 pointer-events-none text-left leading-snug`;
+      clearTimeout(window.__simMsgTimer);
+      window.__simMsgTimer = setTimeout(() => {
+        msg.classList.remove('scale-100', 'opacity-100');
+        msg.classList.add('scale-95', 'opacity-0');
+      }, 1300);
     }
 
     // --- Quiz Logic ---
